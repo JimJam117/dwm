@@ -10,14 +10,14 @@ static const unsigned int gappov    = 10;       /* vert outer gap between window
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "SourceCodePro:size=12" };
-static const char dmenufont[]       = "SourceCodePro:size=12";
-static char normbgcolor[]           = "#222222";
-static char normbordercolor[]       = "#444444";
-static char normfgcolor[]           = "#bbbbbb";
-static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#005577";
-static char selbgcolor[]            = "#005577";
+static const char *fonts[]          = {"FontAwesome:pixelsize=15:antialias=true", "Dejavu Sans Mono:pixelsize=15:antialias=true:autohint=true"};
+static const char dmenufont[]       = "Dejavu Sans Mono:pixelsize=15:antialias=true:autohint=true";
+static char normbgcolor[]           = "#1b1e24";
+static char normbordercolor[]       = "#000000";
+static char normfgcolor[]           = "#ffffff";
+static char selfgcolor[]            = "#000000";
+static char selbordercolor[]        = "#D8DEE9";
+static char selbgcolor[]            = "#81A1C1";
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -26,7 +26,7 @@ static char *colors[][3] = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "", "4", "5", "6", "7", "8", "" };
 
 static const Rule rules[] = {
         /* xprop(1):
@@ -48,6 +48,8 @@ static const Layout layouts[] = {
         { "[]=",      tile },    /* first entry is default */
         { "><>",      NULL },    /* no layout function means floating behavior */
         { "[M]",      monocle },
+	{ "|M|",      centeredmaster },
+	{ ">M>",      centeredfloatingmaster },
 };
 
 /* key definitions */
@@ -99,6 +101,8 @@ static Key keys[] = {
         { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
         { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
         { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[4]} },
         { MODKEY,                       XK_space,  setlayout,      {0} },
         { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
         { MODKEY,                       XK_0,      view,           {.ui = ~0 } },

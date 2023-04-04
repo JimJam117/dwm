@@ -1,0 +1,21 @@
+Build it from source
+
+DWM is very light. All the configuration is made at compile time, so if you want some customization the way to do it is to build it.
+
+First, get git and dependencies:
+
+    $ sudo apt-get install git xorg libx11-dev libxft-dev libxinerama-dev xdm suckless-tools dmenu
+
+Then clone it:
+
+    $ git clone https://git.suckless.org/dwm
+
+Check the ‘config.h’ file and if you’re happy with it:
+
+    $ sudo make clean install
+
+Create a .xsession file with ‘dwm’:
+
+    $ echo “exec -dwm” > .xsession
+
+And reboot.
